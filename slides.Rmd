@@ -1,0 +1,230 @@
+---
+title: "Getting started with Rmarkdown presentations"
+author: "Brad Duthie"
+date: "15/09/2020"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+  beamer_presentation: default
+---
+
+# Before starting to code
+
+## When and how to start making Rmarkdown slides
+
+- Start for an informal presentation
+    - Will not need to do anything fancy
+    - Minor errors not a big deal
+    - Can get started quickly 
+    
+- Build confidence and learn new style tricks over time
+    - Add [cascading style sheets (CSS)](https://github.com/StirlingCodingClub/css) for HTML
+    - Integrate LaTeX for PDF slides 
+
+- Avoid anxiety of having presentation limited by technical skill
+
+## Four types of outputs using knit
+
+1. HTML (ioslides): Not very elegant, but can use columns and shiny easily
+2. HTML (slidy): Nicer looking, but columns are tricky and not for shiny
+3. PDF (LaTeX): Nice looking, but no shiny and might need to know LaTeX
+4. PPTX (Powerpoint): Probably looks okay for some things, but never works for me in LibreOffice
+
+**Need to install [rmarkdown](https://cran.r-project.org/web/packages/rmarkdown/index.html) and [knitr](https://cran.r-project.org/web/packages/knitr/index.html) packages**
+
+## The long-term goal is to do what you cannot (easily) in PowerPoint
+
+- Quickly and easily produce a consistent slide layout
+- Integrate R analysis and plots **directly** into a presentation
+- Make interactive slides using [Rshiny](https://shiny.rstudio.com/)
+- Use [version control](https://stirlingcodingclub.github.io/version_control/vc_notes.html) when writing and maintaining slides
+- Ultimately produce slides more quickly through text and reuse of old code
+
+# Some tricks to get started with the code 
+
+## Select a new Rmarkdown presentation
+
+- The output format is completely unimportant
+- You can get rid of everything but the first lines
+
+```
+---
+title: "Untitled"
+author: "Brad Duthie"
+date: "15/09/2020"
+output: ioslides_presentation
+---
+```
+
+- The YAML specifies some meta-data 
+    - 'Yet Another Markup Language'
+    - Can add to it (e.g., reference styles, format options, etc.)
+    - Everything below the YAML is meant to introduce you to Rmarkdown slides
+
+## Getting started is really easy
+
+The syntax can be used for any type of slide (HTML, PDF, PPTX)
+
+```
+# This makes a title slide
+
+## This is a normal slide
+
+- Bullet 1 on normal slide
+- Bullet 2 on normal slide
+
+## Links are easy
+
+- Link to [UoS website](https://www.stir.ac.uk/)
+
+```
+
+Simple text slides are especially easy to write quickly
+
+
+## Adding images to an Rmarkdown slide
+
+Images can be added with a single line of code:
+
+```
+![Optional figure legend](logo.png){width=20%}
+```
+
+![Optional figure legend](logo.png){width=20%}
+
+Could have also used the below
+
+```{r, echo = TRUE, eval = FALSE}
+## Don't comment out the part below
+# ```{r, echo = FALSE, fig.height = 4}
+#  include_graphics("logo.png");
+# ```
+```
+
+
+## Running code in an Rmarkdown slide
+
+```{r, fig.height = 3, fig.width = 4}
+# The code below is actually being run
+dat <- rnorm(n = 1000, mean = 10, sd = 2);
+
+# We can plot a histogram of it below
+hist(dat, main = "",col = "grey");
+```
+
+
+## Separating a slide into columns gets tricky {.columns-2}
+
+Dividing an entire slide into two columns can be done using a bit of code at the end of the title.
+
+```
+## Slide title {.columns-2}
+```
+
+This applies to the whole slide though, even if you only want columns for a portion of the slide.
+
+
+![](logo.png){width=50%}
+
+It also only works for ioslides presentations.
+
+
+
+## Separating a slide into columns gets tricky {.columns-2}
+
+- Work-arounds to force breaks between columns and make everything look better
+- Figuring out the columns even just for ioslides is not much fun
+- At this point you might need to settle on an output type (ioslides, slidy, PDF)
+
+![](logo.png){width=50%}
+
+
+## Separating a slide into columns gets tricky
+
+Using LaTeX can be powerful inside Rmarkdown, but takes time to learn, and only works for PDFs.
+
+```
+\begin{columns}
+
+\begin{column}{0.5\textwidth} 
+'''{r, out.width = "100%", echo = FALSE}
+library("knitr")
+include_graphics("logo.png");
+'''
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\setlength\itemsep{1.0em}
+\item Using LaTeX can make things look nice
+\item Only possible for PDFs
+\item Need to know yet more code
+\end{itemize}
+\end{column}
+\end{columns}
+```
+
+
+
+## Separating a slide into columns gets tricky {.columns-2}
+
+\begin{columns}
+
+\begin{column}{0.5\textwidth} 
+```{r, out.width = "100%", echo = FALSE}
+library("knitr")
+include_graphics("logo.png");
+```
+\end{column}
+
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+\setlength\itemsep{1.0em}
+\item Using LaTeX can make things look nice
+\item Only possible for PDFs
+\item Need to know yet more code
+\end{itemize}
+\end{column}
+\end{columns}
+
+
+## Maths can be expressed especially well in PDF
+
+
+```
+$$e^{i\pi} + 1 = 0$$
+```
+
+$$e^{i\pi} + 1 = 0$$
+
+
+```
+$$P(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2} 
+         \left(\frac{x - \mu}{\sigma} \right)^{2}}$$
+```
+
+$$P(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma} \right)^{2}}$$
+
+```
+$$E[X] = \int_{x}xf(x)dx$$
+```
+
+$$E[X] = \int_{x}xf(x)dx$$
+
+[Equation editors](https://www.codecogs.com/latex/eqneditor.php) can convert to LaTeX
+
+
+## You will probably have to make compromises
+
+If all else fails, you can just make a picture of what you want and insert it as an image
+
+
+This is a new slide
+-------------------------------
+
+
+This is another slide 
+------------------------------
+
+- Bullet 1
+- Bullet 2
