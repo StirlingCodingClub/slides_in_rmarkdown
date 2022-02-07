@@ -1,11 +1,11 @@
 ---
 title: "Getting started with Rmarkdown presentations"
 author: "Brad Duthie"
-date: "15/09/2020"
+date: "09 FEB 2022"
 output:
+  beamer_presentation: default
   slidy_presentation: default
   ioslides_presentation: default
-  beamer_presentation: default
 ---
 
 # Before starting to code
