@@ -3,9 +3,9 @@ title: "Getting started with Rmarkdown presentations"
 author: "Brad Duthie"
 date: "09 FEB 2022"
 output:
+  ioslides_presentation: default
   beamer_presentation: default
   slidy_presentation: default
-  ioslides_presentation: default
 ---
 
 # Before starting to code
@@ -113,7 +113,7 @@ hist(dat, main = "",col = "grey");
 ```
 
 
-## Separating a slide into columns gets tricky {.columns-2}
+## Separating a slide into columns gets tricky {.smaller .columns-2}
 
 Dividing an entire slide into two columns can be done using a bit of code at the end of the title.
 
@@ -130,7 +130,7 @@ It also only works for ioslides presentations.
 
 
 
-## Separating a slide into columns gets tricky {.columns-2}
+## Separating a slide into columns gets tricky {.smaller .columns-2}
 
 - Work-arounds to force breaks between columns and make everything look better
 - Figuring out the columns even just for ioslides is not much fun
@@ -139,7 +139,7 @@ It also only works for ioslides presentations.
 ![](logo.png){width=50%}
 
 
-## Separating a slide into columns gets tricky
+## Separating a slide into columns gets tricky {.smaller}
 
 Using LaTeX can be powerful inside Rmarkdown, but takes time to learn, and only works for PDFs.
 
@@ -166,7 +166,7 @@ include_graphics("logo.png");
 
 
 
-## Separating a slide into columns gets tricky {.columns-2}
+## Separating a slide into columns gets tricky {.smaller .columns-2}
 
 \begin{columns}
 
@@ -223,8 +223,3 @@ This is a new slide
 -------------------------------
 
 
-This is another slide 
-------------------------------
-
-- Bullet 1
-- Bullet 2
