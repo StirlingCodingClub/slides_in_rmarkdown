@@ -1,10 +1,10 @@
 ---
 title: "Getting started with Rmarkdown presentations"
 author: "Brad Duthie"
-date: "09 FEB 2022"
+date: "25 JAN 2023"
 output:
-  ioslides_presentation: default
   beamer_presentation: default
+  ioslides_presentation: default
   slidy_presentation: default
 ---
 
@@ -51,7 +51,7 @@ output:
 ---
 title: "Untitled"
 author: "Brad Duthie"
-date: "15/09/2020"
+date: "25/01/2023"
 output: ioslides_presentation
 ---
 ```
@@ -95,10 +95,8 @@ Images can be added with a single line of code:
 Could have also used the below
 
 ```{r, echo = TRUE, eval = FALSE}
-## Don't comment out the part below
-# ```{r, echo = FALSE, fig.height = 4}
-#  include_graphics("logo.png");
-# ```
+include_graphics("logo.png", 
+                 fig.cap = "Optional figure legend");
 ```
 
 
@@ -205,6 +203,10 @@ $$P(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2}
 
 $$P(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma} \right)^{2}}$$
 
+
+## Maths can be expressed especially well in PDF
+
+
 ```
 $$E[X] = \int_{x}xf(x)dx$$
 ```
@@ -221,5 +223,8 @@ If all else fails, you can just make a picture of what you want and insert it as
 
 This is a new slide
 -------------------------------
+
+- Bullet point 1
+- Bullet point 2
 
 
