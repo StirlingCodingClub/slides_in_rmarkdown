@@ -1,7 +1,7 @@
 ---
 title: "Getting started with Rmarkdown presentations"
 author: "Brad Duthie"
-date: "25 JAN 2023"
+date: "28 FEB 2024"
 output:
   slidy_presentation: default
   ioslides_presentation: default
@@ -51,7 +51,7 @@ output:
 ---
 title: "Untitled"
 author: "Brad Duthie"
-date: "25/01/2023"
+date: "28/02/2024"
 output: ioslides_presentation
 ---
 ```
