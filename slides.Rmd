@@ -1,7 +1,7 @@
 ---
 title: "Getting started with Rmarkdown presentations"
 author: "Brad Duthie"
-date: "28 FEB 2024"
+date: "18 FEB 2025"
 output:
   slidy_presentation: default
   ioslides_presentation: default
@@ -11,6 +11,8 @@ output:
 # Before starting to code
 
 ## When and how to start making Rmarkdown slides
+
+\tiny
 
 - Start for an informal presentation
     - Will not need to do anything fancy
@@ -23,7 +25,22 @@ output:
 
 - Avoid anxiety of having presentation limited by technical skill
 
+- More
+
+- More 
+
+- And more text
+
+- Avoid anxiety of having presentation limited by technical skill
+
+- Avoid anxiety of having presentation limited by technical skill
+
+- Avoid anxiety of having presentation limited by technical skill
+
+
 ## Four types of outputs using knit
+
+New Line!
 
 1. HTML (ioslides): Not very elegant, but can use columns and shiny easily
 2. HTML (slidy): Nicer looking, but columns are tricky and not for shiny
@@ -39,6 +56,13 @@ output:
 - Make interactive slides using [Rshiny](https://shiny.rstudio.com/)
 - Use [version control](https://stirlingcodingclub.github.io/version_control/vc_notes.html) when writing and maintaining slides
 - Ultimately produce slides more quickly through text and reuse of old code
+
+## Plot random normal values
+
+```{r, echo = FALSE}
+hist(x = rnorm(1000), xlab = "random normals");
+```
+
 
 # Some tricks to get started with the code 
 
